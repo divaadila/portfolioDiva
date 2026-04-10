@@ -4,24 +4,20 @@ const observer = new IntersectionObserver((entries) => {
 
         const el = entry.target;
 
-        // 1. CARD
         if (el.classList.contains('card')) {
             el.classList.add('show');
         }
 
-        // 2. TECH STACK (img animation)
         if (el.classList.contains('tech-stack')) {
             el.querySelectorAll('img')
               .forEach(img => img.classList.add('animate'));
         }
 
-        // 3. CERTIFICATE (a animation)
         if (el.classList.contains('certificate')) {
             el.querySelectorAll('a')
               .forEach(a => a.classList.add('animate'));
         }
 
-        // 4. TITLES
         if (
             el.classList.contains('title-1') ||
             el.classList.contains('title-2') ||
@@ -30,7 +26,6 @@ const observer = new IntersectionObserver((entries) => {
             el.classList.add('show');
         }
 
-        // 5. ANIMATED ELEMENTS (squid, caterpillar)
         if (
             el.classList.contains('squid') ||
             el.classList.contains('caterpillar')
@@ -42,7 +37,6 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.3
 });
 
-// OBSERVE SEMUA SEKALIGUS
 document.querySelectorAll(
     '.card, .tech-stack, .certificate, .title-1, .title-2, .title-3, .squid, .caterpillar'
 ).forEach(el => observer.observe(el));
