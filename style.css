@@ -703,10 +703,12 @@ label {
 }
 
 #form-status.error {
+    opacity: 1;
     color: red;
 }
 
 #form-status.success {
+    opacity: 1;
     color: var(--other-color);
 }
 
