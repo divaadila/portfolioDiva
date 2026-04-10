@@ -1,52 +1,51 @@
-const cards = document.querySelectorAll('.card');
-
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+        if (!entry.isIntersecting) return;
+
+        const el = entry.target;
+
+        // 1. CARD
+        if (el.classList.contains('card')) {
+            el.classList.add('show');
+        }
+
+        // 2. TECH STACK (img animation)
+        if (el.classList.contains('tech-stack')) {
+            el.querySelectorAll('img')
+              .forEach(img => img.classList.add('animate'));
+        }
+
+        // 3. CERTIFICATE (a animation)
+        if (el.classList.contains('certificate')) {
+            el.querySelectorAll('a')
+              .forEach(a => a.classList.add('animate'));
+        }
+
+        // 4. TITLES
+        if (
+            el.classList.contains('title-1') ||
+            el.classList.contains('title-2') ||
+            el.classList.contains('title-3')
+        ) {
+            el.classList.add('show');
+        }
+
+        // 5. ANIMATED ELEMENTS (squid, caterpillar)
+        if (
+            el.classList.contains('squid') ||
+            el.classList.contains('caterpillar')
+        ) {
+            el.classList.add('show');
         }
     });
 }, {
     threshold: 0.3
 });
 
-cards.forEach(card => {
-    observer.observe(card);
-});
-
-const techStack = document.querySelectorAll('.tech-stack');
-
-const techObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const images = entry.target.querySelectorAll('img');
-            images.forEach(img => img.classList.add('animate'));
-        }
-    });
-}, {
-    threshold: 0.3
-});
-
-techStack.forEach(stack => {
-    techObserver.observe(stack);
-});
-
-const certificateStack = document.querySelectorAll('.certificate');
-
-const certObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const images = entry.target.querySelectorAll('a');
-            images.forEach(img => img.classList.add('animate'));
-        }
-    });
-}, {
-    threshold: 0.3
-});
-
-certificateStack.forEach(stack => {
-    certObserver.observe(stack);
-});
+// OBSERVE SEMUA SEKALIGUS
+document.querySelectorAll(
+    '.card, .tech-stack, .certificate, .title-1, .title-2, .title-3, .squid, .caterpillar'
+).forEach(el => observer.observe(el));
 
 const lightbox = GLightbox({
     touchNavigation: true,
@@ -85,38 +84,6 @@ tabs.forEach(tab => {
             });
         }
     });
-});
-
-const titles = document.querySelectorAll('.title-1, .title-2, .title-3');
-
-const titleObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-    });
-}, {
-    threshold: 0.3
-});
-
-titles.forEach(title => {
-    observer.observe(title);
-});
-
-const elements = document.querySelectorAll('.squid, .caterpillar');
-
-const elementObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-    });
-}, {
-    threshold: 0.3
-});
-
-elements.forEach(element => {
-    elementObserver.observe(element);
 });
 
 const form = document.querySelector(".contact-form");
