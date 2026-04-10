@@ -1092,6 +1092,10 @@ label {
         gap: 0;
     }
 
+    .field-2 {
+        gap: 20px;
+    }
+
     .origami {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 40px;
@@ -1109,9 +1113,6 @@ label {
     .origami-2 {
         width: 24px;
     }
-
-
-
 
 }
     
