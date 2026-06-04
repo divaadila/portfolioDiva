@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --main-color: #121212;
+    --second-color: #2420F1;
+    --third-color: #B2F120;
+    --fourth-color: #F9F917;
+    --fifth-color: #F5F5F5;
+    --background-color: #FFFFFF;
+    --text-color: #121212;
+
+    --font-primary: 'Comic Neue', cursive;
+    --font-secondary: 'Bowlby One', sans-serif;
+
+    --h1-font: 48px;
+    --h2-font: 36px;
+    --h3-font: 24px;
+    --p-font: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body, button, input, select, textarea {
+    font-family: var(--font-primary);
+    font-size: var(--p-font) ;
+    font-weight: 700;
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: min(100% - 32px, 1200px);
+    margin-inline: auto;
+    margin-block: 24px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-secondary);
+    font-weight: normal;
+}
+
+h1 {
+    font-size: var(--h1-font);
+}
+
+h2 {
+    font-size: var(--h2-font);
+}
+
+h3 {
+    font-size: var(--h3-font);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
